@@ -1,0 +1,26 @@
+.transaction-page {
+  width: 100vw;
+  height: 90vh;
+}
+
+.details {
+  text-align: center;
+}
+
+.lists {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* width: 100vw; */
+}
+
+.lists h1 {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: #2d6590;
+}
+
+.price {
+  display: flex;
+}
