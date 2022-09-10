@@ -1,1 +1,1 @@
-export const baseUrl = "https://shellhacks-backend.herokuapp.com";
+export const baseUrl = process.env.REACT_APP_BASE_URL;
