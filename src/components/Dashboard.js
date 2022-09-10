@@ -4,30 +4,50 @@ import { Link } from "react-router-dom";
 // import { DonutChart } from "react-circle-chart";
 import DonutChart from "react-donut-chart";
 import { useNavigate } from "react-router-dom";
+import { get, post, remove } from "../services/service";
 
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 const Dashboard = () => {
-  const [title, setTitle] = React.useState("");
+  const [goals, setGoals] = React.useState([]);
   const [percentage, setPercentage] = React.useState(70);
+  const [status, setStatus] = React.useState("");
   // const percentage = 10;
 
   const navigate = useNavigate();
 
+  React.useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/");
+    }
+    fetchGoals();
+  }, []);
+
+  const fetchGoals = async () => {
+    try {
+      const response = await get(`/goals/my-goals`);
+      console.log(response.data);
+      setGoals(response.data);
+    } catch (err) {
+      setStatus(err.message);
+    }
+  };
+
   return (
     <div className="dashboard">
       <div className="dash-cat">
-        <Link to="/subscriptions">
+        <Link to="/alltransactions">
           <h4>All Transactions</h4>
         </Link>
-        <Link to="/subscriptions">
+        <Link to="/categories">
           <h4>Categories</h4>
         </Link>
         <Link to="/subscriptions">
           <h4>Subscriptions</h4>
         </Link>
-        <Link to="/subscriptions">
+        <Link to="/goals">
           <h4>Goals</h4>
         </Link>
       </div>
