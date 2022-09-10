@@ -13,6 +13,8 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Faqs from "./components/Faqs";
 import Terms from "./components/Terms";
+import NewTransaction from "./components/NewTransaction";
+import Goals from "./components/Goals";
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/faqs" element={<Faqs />} />
         <Route path="/terms" element={<Terms />} />
+        <Route path="/transaction" element={<NewTransaction />} />
+        <Route path="/goals" element={<Goals />} />
       </Routes>
       <Footer />
     </div>

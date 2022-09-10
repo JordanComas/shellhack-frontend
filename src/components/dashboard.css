@@ -44,29 +44,65 @@
 }
 
 svg {
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   /* margin-right: 15vw; */
+  /* height: 10vh; */
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .chart-left {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   width: 50vw;
+  height: 100vh;
+  flex-wrap: wrap;
+}
+
+.chart-left h1 {
+  width: 50vw;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .chart {
   display: flex;
   width: 50vw;
-  height: 100vh;
+  height: 80vh;
   justify-content: flex-end;
   align-items: center;
+  flex-direction: column;
+  margin: 2vh 0;
 }
 
 .sections {
   display: flex;
   flex-direction: row;
   width: 100vw;
+}
+
+.progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+  /* height: 1vh; */
+  /* width: 15vw; */
+  /* margin: 0 5vw; */
+  flex-wrap: wrap;
+}
+
+.progress-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2vw;
+  width: 13vw;
+  flex-wrap: wrap;
 }

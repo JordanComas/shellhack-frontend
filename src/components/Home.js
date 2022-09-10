@@ -3,6 +3,7 @@ import "../components/home.css";
 import student from "../images/student.png";
 import bulb from "../images/bulb.gif";
 import { Link } from "react-router-dom";
+import AddButton from "./AddButton";
 
 const Home = () => {
   return (
@@ -69,6 +70,9 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Link to="/transaction">
+        <AddButton />
+      </Link>
     </div>
   );
 };
