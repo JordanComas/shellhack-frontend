@@ -8,3 +8,20 @@ section1{
     display: flex;
     /* padding-bottom: 50px; */
 }
+
+.all{
+    display: flex;
+    justify-content: space-between;
+}
+
+.details{
+    width: 50vh;
+}
+
+.details2 img{
+    width: 50vh;
+    margin-left: 70vh;
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+    margin-right: -6vh;
+}
