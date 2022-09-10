@@ -9,6 +9,7 @@ import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 const Dashboard = () => {
+  const [title, setTitle] = React.useState("");
   const [percentage, setPercentage] = React.useState(70);
   // const percentage = 10;
 
@@ -18,19 +19,16 @@ const Dashboard = () => {
     <div className="dashboard">
       <div className="dash-cat">
         <Link to="/subscriptions">
-          <h4>Subscriptions</h4>
+          <h4>All Transactions</h4>
+        </Link>
+        <Link to="/subscriptions">
+          <h4>Categories</h4>
         </Link>
         <Link to="/subscriptions">
           <h4>Subscriptions</h4>
         </Link>
         <Link to="/subscriptions">
-          <h4>Subscriptions</h4>
-        </Link>
-        <Link to="/subscriptions">
-          <h4>Subscriptions</h4>
-        </Link>
-        <Link to="/subscriptions">
-          <h4>Subscriptions</h4>
+          <h4>Goals</h4>
         </Link>
       </div>
       <div className="sections">
@@ -38,23 +36,29 @@ const Dashboard = () => {
           <h1>Welcome to your dashboard Jordan!</h1>
           <div className="progress">
             <div className="progress-section">
-              <h3>Saving for a car</h3>
-              <CircularProgressbar
-                value={percentage}
-                text={`${percentage}%`}
-                styles={{
-                  path: {
-                    // Path color
-                    stroke: `rgba(62, 152, 199, ${percentage / 100})`,
-                  },
-                  text: {
-                    // Text color
-                    fill: "#2d6590",
-                    // Text size
-                    fontSize: "16px",
-                  },
-                }}
-              />
+              {/* {goals.map((goal) => {
+                return (
+                  <div>
+                   <h3>{title}</h3>
+                    <CircularProgressbar
+                      value={percentage}
+                      text={`${percentage}%`}
+                      styles={{
+                        path: {
+                          // Path color
+                          stroke: `rgba(62, 152, 199, ${percentage / 100})`,
+                        },
+                        text: {
+                          // Text color
+                          fill: "#2d6590",
+                          // Text size
+                          fontSize: "16px",
+                        },
+                      }}
+                    />
+                  </div>
+                );
+              })} */}
             </div>
             <div className="progress-section">
               <h3>Saving for a car</h3>
