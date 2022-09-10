@@ -1,0 +1,30 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  bottom: 0%;
+  width: 100vw;
+  height: auto;
+  background-color: #fff;
+  border-top: 1px solid lightgrey;
+}
+
+.columns {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 25vw;
+}
+
+.columns a {
+  margin: 1vh 0;
+  text-decoration: none;
+  color: black;
+  width: auto;
+}
+
+.columns a:hover {
+  color: #2d6590;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

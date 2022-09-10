@@ -1,5 +1,60 @@
 nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   height: 10vh;
   width: 100vw;
-  background-color: #dffdf5;
+  background-color: #fff;
+  border-bottom: 1px solid lightgrey;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* width: 15vw; */
+  margin: 0 2vw;
+  font-size: 20px;
+}
+
+.logo a {
+  text-decoration: none;
+  color: black;
+}
+
+.logo b {
+  color: #2d6590;
+  text-decoration: underline;
+}
+
+.nav-line {
+  height: 5vh;
+  border-left: 1px solid black;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 25vw;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  margin: 0 1vw;
+}
+
+.nav-links a:hover {
+  color: #2d6590;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.nav-links a.active {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: #2d6590;
 }
