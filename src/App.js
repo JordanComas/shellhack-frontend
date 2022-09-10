@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import Dashboard from "./components/Dashboard";
+import NewTransaction from "./components/NewTransaction";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/transaction" element={<NewTransaction />} />
       </Routes>
       <Footer />
     </div>
