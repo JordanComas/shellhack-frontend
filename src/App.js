@@ -9,6 +9,7 @@ import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import Dashboard from "./components/Dashboard";
 import NewTransaction from "./components/NewTransaction";
+import Goals from "./components/Goals";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/transaction" element={<NewTransaction />} />
+        <Route path="/goals" element={<Goals />} />
       </Routes>
       <Footer />
     </div>
