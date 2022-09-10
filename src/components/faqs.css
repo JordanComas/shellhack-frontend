@@ -1,0 +1,20 @@
+.faqs{
+    text-align: center;
+    /* margin-bottom: 27vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.faqs > h1{
+    text-align: center;
+    margin-bottom: 5vh;
+}
+
+.faqs-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* align-items: center; */
+    height: 90vh;
+}

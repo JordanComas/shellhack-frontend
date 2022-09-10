@@ -7,13 +7,13 @@ const Footer = () => {
     <footer>
       <div className="columns">
         <h5>ABOUT SaveExp</h5>
-        <Link to="#">Contact us</Link>
-        <Link to="#">About us</Link>
-        <Link to="#">FAQs</Link>
+        <Link to="/contact">Contact us</Link>
+        <Link to="/about">About us</Link>
+        <Link to="/faqs">FAQs</Link>
       </div>
       <div className="columns">
         <h5>PRIVACY &amp; TERMS</h5>
-        <Link to="#">Terms of use</Link>
+        <Link to="/terms">Terms of use</Link>
       </div>
     </footer>
   );

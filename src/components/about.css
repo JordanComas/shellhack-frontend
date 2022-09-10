@@ -1,0 +1,20 @@
+.about1 > h1{
+  text-align: center;  
+}
+
+.about1 > p{
+    margin-left: 25vh;
+    margin-right: 25vh;
+    text-indent: 5vh;
+    /* margin-top: 5vh; */
+    margin-bottom: -2vh;
+    text-align: justify;
+    font-size: 3vh;
+}
+.about{
+    /* height: 90vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
