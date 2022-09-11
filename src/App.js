@@ -15,6 +15,8 @@ import Faqs from "./components/Faqs";
 import Terms from "./components/Terms";
 import NewTransaction from "./components/NewTransaction";
 import Goals from "./components/Goals";
+import AddButton from "./components/AddButton";
+import AllTransactions from "./components/AllTransaction";
 
 function App() {
   return (
@@ -33,7 +35,9 @@ function App() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/transaction" element={<NewTransaction />} />
         <Route path="/goals" element={<Goals />} />
+        <Route path="/alltransactions" element={<AllTransactions />} />
       </Routes>
+      <AddButton />
       <Footer />
     </div>
   );

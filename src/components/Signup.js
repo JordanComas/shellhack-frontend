@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import { get, post } from "../services/service";
 import { useNavigate } from "react-router-dom";
 import Signup1 from "../images/signup.jpeg";
+import eye from "../images/eye.png";
 
 const Signup = () => {
   const [firstName, setFirstName] = React.useState("");
@@ -15,6 +16,7 @@ const Signup = () => {
   const [password, setPassword] = React.useState("");
   const [password2, setPassword2] = React.useState("");
   const [status, setStatus] = React.useState("");
+  const [passwordShown, setPasswordShown] = React.useState(false);
 
   const navigate = useNavigate();
 
@@ -50,80 +52,89 @@ const Signup = () => {
       }
     }
   };
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
   return (
-    <div>
-      {/* <h1>Signup</h1> */}
-      <section1>
-        <div className="all">
-          <div className="details">
-            <div className="fullname">
-              <TextField
-                id="standard-basic"
-                label="First Name"
-                variant="standard"
-                onChange={(e) => setFirstName(e.target.value)}
-                sx={{ width: 400, paddingBottom: 7, marginTop: 5 }}
-              />
-              <TextField
-                id="standard-basic"
-                label="Last Name"
-                variant="standard"
-                className="second-name"
-                sx={{ width: 400, marginLeft: 7, marginTop: 5 }}
-                onChange={(e) => setLastName(e.target.value)}
-              />
-            </div>
-            <div>
-              <TextField
-                id="standard-basic"
-                label="Email"
-                variant="standard"
-                type="email"
-                sx={{ width: 300, paddingBottom: 7 }}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <TextField
-                id="standard-basic"
-                label="Phone Number"
-                variant="standard"
-                sx={{ width: 300, paddingBottom: 7 }}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-              />
-            </div>
+    <div className="signup-page">
+      <div className="all">
+        <div className="details">
+          <div className="required">
+            <p>* Required</p>
+          </div>
+          <div className="signup-names">
+            <TextField
+              id="standard-basic"
+              label="First Name"
+              variant="standard"
+              onChange={(e) => setFirstName(e.target.value)}
+              sx={{ width: 250, paddingBottom: 2, margin: 1 }}
+            />
+            <TextField
+              id="standard-basic"
+              label="Last Name"
+              variant="standard"
+              className="second-name"
+              sx={{ width: 250, paddingBottom: 2, margin: 1 }}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </div>
+          <div className="signup-names">
+            <TextField
+              id="standard-basic"
+              label="Email"
+              variant="standard"
+              type="email"
+              sx={{ width: 250, paddingBottom: 2, margin: 1 }}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <TextField
+              id="standard-basic"
+              label="Phone Number"
+              variant="standard"
+              sx={{ width: 250, paddingBottom: 2, margin: 1 }}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+          </div>
+          <div className="signup-passwords">
             <TextField
               id="standard-password-input"
               label="Password"
-              type="password"
+              type={passwordShown ? "text" : "password"}
               // autoComplete="current-password"
               variant="standard"
-              sx={{ width: 400, paddingBottom: 7 }}
+              sx={{ width: 250, paddingBottom: 2, margin: 1 }}
               onChange={(e) => setPassword(e.target.value)}
             />
+
             <TextField
               id="standard-password-input"
-              label="Re-Enter Password"
-              type="password"
+              label="Re-enter Password"
+              type={passwordShown ? "text" : "password"}
               // autoComplete="current-password"
               variant="standard"
-              sx={{ width: 400 }}
+              sx={{ width: 250, paddingBottom: 2, margin: 1 }}
               onChange={(e) => setPassword2(e.target.value)}
             />
-            <Stack spacing={2} direction="row">
-              <Button
-                onClick={Status}
-                variant="contained"
-                sx={{ marginTop: 8 }}
-              >
-                SignUp
-              </Button>
-            </Stack>
-            <h3>{status}</h3>
+            <img className="eye" onClick={togglePassword} src={eye} alt="" />
           </div>
-          <div className="details2">
-            <img src={Signup1} />
-          </div>
+          <Stack spacing={2} direction="row">
+            <Button onClick={Status} variant="contained" sx={{ marginTop: 8 }}>
+              SignUp
+            </Button>
+          </Stack>
+          <h3>{status}</h3>
         </div>
-      </section1>
+        <div className="details2">
+          <hr className="hrline1" />
+          <h1 className="hrline-text">
+            Save<b>E</b>xp
+          </h1>
+          <hr className="hrline2" />
+          <img src={Signup1} />
+        </div>
+      </div>
     </div>
   );
 };

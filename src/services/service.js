@@ -5,7 +5,7 @@ export const get = async (route) => {
   let token = localStorage.getItem("token");
   return await axios.get(baseUrl + route, {
     headers: {
-      Authorization: token,
+      Authorization: "Bearer " + token,
     },
   });
 };
