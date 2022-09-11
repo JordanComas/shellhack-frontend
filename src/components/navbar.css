@@ -9,6 +9,23 @@ nav {
   border-bottom: 1px solid lightgrey;
 }
 
+nav button {
+  position: absolute;
+  right: 5%;
+  top: 3%;
+  border: none;
+  background-color: #2d6590;
+  color: #fff;
+  font-weight: bold;
+  height: 5vh;
+  width: 10vw;
+}
+
+nav button:hover {
+  background-color: #346387;
+  cursor: pointer;
+}
+
 .logo {
   display: flex;
   flex-direction: row;
@@ -36,7 +53,7 @@ nav {
 .nav-links {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   width: 25vw;
 }
 

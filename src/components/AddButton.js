@@ -5,7 +5,9 @@ import AddIcon from "@mui/icons-material/Add";
 import { Link } from "react-router-dom";
 
 const AddButton = () => {
-  return (
+  const token = localStorage.getItem("token");
+
+  return token ? (
     <div>
       <Box
         sx={{
@@ -23,7 +25,7 @@ const AddButton = () => {
         </Link>
       </Box>
     </div>
-  );
+  ) : null;
 };
 
 export default AddButton;

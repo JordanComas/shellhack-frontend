@@ -14,6 +14,7 @@ const Dashboard = () => {
   const [percentage, setPercentage] = React.useState(0);
   const [status, setStatus] = React.useState("");
   const [getTransactions, setGetTransactions] = React.useState([]);
+  const [data, setData] = React.useState();
   // const percentage = 10;
 
   const navigate = useNavigate();
@@ -27,22 +28,61 @@ const Dashboard = () => {
     getAllTransactions();
   }, []);
 
+  // console.log();
+
   const fetchGoals = async () => {
     try {
       const response = await get(`/goals/my-goals`);
-      console.log(response.data);
+      // console.log(response.data);
       setGoals(response.data);
     } catch (err) {
       setStatus(err.message);
     }
   };
 
-  const getAllTransactions = async () => {
-    let response = await get("/transactions/my-transactions");
+  const getAllTransactions = async (e) => {
+    // e.preventDefault();
+    try {
+      let response = await get("/transactions/my-transactions");
 
-    console.log(response.data);
-    setGetTransactions(response.data);
+      let dataArr = [];
+      for (let i = 0; i < response.data.length; i++) {
+        // console.log(response.data[i].title);
+        dataArr.push({
+          label: response.data[i].category,
+          value: response.data[i].amount,
+        });
+      }
+      // console.log(dataArr);
+      // console.log(response.data);
+      setGetTransactions(response.data);
+      setData(dataArr);
+    } catch (err) {
+      console.error(err.message);
+    }
   };
+
+  // let arr = [
+  //   {
+  //     label: `${response.data[0].title}`,
+  //     value: 23,
+  //   },
+  // ];
+
+  // console.log(getTransactions);
+
+  // const arrMap = () => {
+
+  // const arrMap = () => {
+  //   getTransactions.forEach((transaction) => {
+
+  //   });
+  // };
+  // };
+
+  // arr.forEach((el) => {
+  //   console.log(el);
+  // });
 
   return (
     <div className="dashboard">
@@ -62,7 +102,10 @@ const Dashboard = () => {
       </div>
       <div className="sections">
         <div className="chart-left">
-          <h1>Welcome to your dashboard {localStorage.email}!</h1>
+          <h1>
+            Welcome to your dashboard <br />
+            {localStorage.email}!
+          </h1>
           <div className="progress">
             <div className="progress-section">
               {/* {goals.map((goal) => {
@@ -91,6 +134,7 @@ const Dashboard = () => {
             </div>
             <div className="progress-section">
               <h3>Saving for a car</h3>
+
               <CircularProgressbar
                 value={percentage}
                 text={`${percentage}%`}
@@ -130,39 +174,11 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="chart">
+          {getTransactions.length > 0 && (
+            <DonutChart clickToggle={false} data={data} />
+          )}
           <DonutChart
-            // className="donutchart"
-            // colors={["#2d6590", "#daeaf6"]}
-            // onClick={(item, toggled) => (toggled ? item : navigate("/"))}
-            // width={800}
-            // height={100}
-            clickToggle={false}
-            data={[
-              {
-                label: "Stocks",
-                value: 500,
-              },
-              {
-                label: "Food",
-                value: 300,
-              },
-              {
-                label: "Accesories",
-                value: 1000,
-              },
-              {
-                label: "Empty",
-                value: 90,
-                isEmpty: true,
-              },
-            ]}
-          />
-          <DonutChart
-            // className="donutchart"
             colors={["red", "green"]}
-            // onClick={(item, toggled) => (toggled ? item : navigate("/"))}
-            // width={800}
-            // height={100}
             clickToggle={false}
             data={[
               {

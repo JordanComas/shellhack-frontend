@@ -7,6 +7,7 @@ import { get, post } from "../services/service";
 import { useNavigate } from "react-router-dom";
 import Signup1 from "../images/signup.jpeg";
 import eye from "../images/eye.png";
+import Loader from "./Loader";
 
 const Signup = () => {
   const [firstName, setFirstName] = React.useState("");
@@ -17,6 +18,7 @@ const Signup = () => {
   const [password2, setPassword2] = React.useState("");
   const [status, setStatus] = React.useState("");
   const [passwordShown, setPasswordShown] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const navigate = useNavigate();
 
@@ -34,6 +36,7 @@ const Signup = () => {
       setStatus("Password doesnt match");
     } else {
       try {
+        setIsLoading(true);
         let response = await post("/users/signup", {
           firstName: firstName,
           lastName: lastName,
@@ -50,6 +53,7 @@ const Signup = () => {
       } catch (err) {
         console.error(err.message);
         // setStatus("Password or username is incorrect");
+        setIsLoading(false);
       }
     }
   };
@@ -135,6 +139,10 @@ const Signup = () => {
           <hr className="hrline2" />
           <img src={Signup1} />
         </div>
+      </div>
+      <div className="loader-div">
+        {isLoading && <Loader />}
+        {/* <Loader /> */}
       </div>
     </div>
   );

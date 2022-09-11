@@ -98,16 +98,16 @@ const Goals = () => {
   return (
     <div className="goals-page">
       <div className="goals-cat">
-        <Link to="/subscriptions">
+        <Link to="/alltransactions">
           <h4>All Transactions</h4>
         </Link>
-        <Link to="/subscriptions">
+        <Link to="/categories">
           <h4>Categories</h4>
         </Link>
         <Link to="/subscriptions">
           <h4>Subscriptions</h4>
         </Link>
-        <Link to="/subscriptions">
+        <Link to="/goals">
           <h4>Goals</h4>
         </Link>
       </div>
