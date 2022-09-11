@@ -39,9 +39,10 @@ const Signup = () => {
           email: email,
           // phone: phone,
         });
-        // console.log(process.env);
+        // console.log(response.data);
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("id", response.data.id);
+        localStorage.setItem("email", response.data.email);
+        // localStorage.setItem("name", response.data.firstName);
         // setStatus("welcome");
         navigateCreate();
       } catch (err) {
