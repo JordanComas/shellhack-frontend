@@ -18,7 +18,7 @@ const Goals = () => {
   const [date, setDate] = React.useState("");
   const [status, setStatus] = React.useState("");
   const [goals, setGoals] = React.useState([]);
-  const [current, setCurrent] = React.useState("");
+  const [current, setCurrent] = React.useState(0);
   const [placeholder, setPlaceholder] = React.useState(0);
   const [id, setId] = React.useState("");
   const [flag, setFlag] = React.useState(false);
@@ -43,6 +43,7 @@ const Goals = () => {
       const response = await get(`/goals/my-goals`);
       console.log(response.data);
       setGoals(response.data);
+      // setCurrent(parseFloat(response.data.current));
     } catch (err) {
       setStatus(err.message);
     }
@@ -76,23 +77,38 @@ const Goals = () => {
   };
 
   const updateGoal = async (id) => {
-    console.log(placeholder);
-    console.log(id);
+    // console.log(placeholder);
+    // console.log(id);
+    // console.log(typeof current);
+    let dummy = parseFloat(current) + parseFloat(placeholder);
+    // console.log(parseFloat(dummy));
+
+    setCurrent(parseFloat(dummy));
+    console.log(current);
+
+    // console.log(current);
     // e.preventDefault();
     // setCurrent(current + placeholder);
+
     try {
       let response = await post(`/goals/update-goal/${id}`, {
-        current: current + placeholder,
+        current: parseFloat(dummy),
       });
-      console.log(response);
+      // setCurrent(parseFloat(dummy));
+      fetchGoals();
+      navigate("/goals");
     } catch (err) {
       console.error(err.message);
     }
   };
 
-  const show = (params) => {
-    setId(params._id);
-    setFlag(!flag);
+  const show = async (params) => {
+    setId(params);
+    if (flag == true) {
+      setFlag(false);
+    } else if (flag == false) {
+      setFlag(true);
+    }
   };
 
   return (
@@ -147,28 +163,31 @@ const Goals = () => {
           {status}
         </div>
         <div className="goals-right">
-          <h1>My goals</h1>
+          {/* <h1>My goals</h1> */}
           {goals &&
-            goals.map((goal, index) => {
+            goals.map((goal) => {
               return (
-                <div onClick={show}>
-                  <h3>{goal.title}</h3>
-                  <CircularProgressbar
-                    value={0}
-                    text={`${current}/${goal.amount}`}
-                    styles={{
-                      path: {
-                        // Path color
-                        stroke: `rgba(62, 152, 199, ${goal.amount / 100})`,
-                      },
-                      text: {
-                        // Text color
-                        fill: "#2d6590",
-                        // Text size
-                        fontSize: "16px",
-                      },
-                    }}
-                  />
+                <div>
+                  {console.log(goals)}
+                  <div onClick={() => show(goal._id)}>
+                    <h3>{goal.title}</h3>
+                    <CircularProgressbar
+                      value={current && goal.current}
+                      text={`${current && goal.current}/${goal.amount}`}
+                      styles={{
+                        path: {
+                          // Path color
+                          stroke: `rgba(62, 152, 199, ${goal.amount / 100})`,
+                        },
+                        text: {
+                          // Text color
+                          fill: "#2d6590",
+                          // Text size
+                          fontSize: "16px",
+                        },
+                      }}
+                    />
+                  </div>
                   {goal._id === id && flag ? (
                     <div>
                       <label>Update your goal</label>

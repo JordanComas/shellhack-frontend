@@ -59,6 +59,7 @@ const Login = () => {
           label="Password"
           variant="standard"
           className="second-name"
+          type="password"
           sx={{ width: 300, marginLeft: 5 }}
           onChange={(e) => setPassword(e.target.value)}
         />
