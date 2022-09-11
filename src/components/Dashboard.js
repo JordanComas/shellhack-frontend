@@ -11,7 +11,7 @@ import "react-circular-progressbar/dist/styles.css";
 
 const Dashboard = () => {
   const [goals, setGoals] = React.useState([]);
-  const [percentage, setPercentage] = React.useState(0);
+  const [percentage, setPercentage] = React.useState(78);
   const [status, setStatus] = React.useState("");
   const [getTransactions, setGetTransactions] = React.useState([]);
   const [data, setData] = React.useState();

@@ -32,7 +32,7 @@ const Login = () => {
         });
         // console.log(response.data);
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("email", response.data.email);
+        localStorage.setItem("email", response.data.firstName);
         // localStorage.setItem("name", response.data.firstName);
         navigateCreate();
       } catch (err) {
