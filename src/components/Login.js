@@ -11,6 +11,8 @@ const Login = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [status, setStatus] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(false);
+
   const navigate = useNavigate();
 
   const navigateCreate = () => {
@@ -23,6 +25,7 @@ const Login = () => {
       setStatus("Please enter a valid username and password");
     } else {
       try {
+        setIsLoading(true);
         let response = await post("/users/login", {
           email: email,
           password: password,
@@ -35,6 +38,7 @@ const Login = () => {
       } catch (err) {
         console.error(err.message);
         setStatus("Password or username is incorrect");
+        setIsLoading(false);
       }
     }
   };
@@ -42,7 +46,7 @@ const Login = () => {
   return (
     <div className="login-page">
       <div className="login">
-        <h1>LogIn</h1>
+        <h1>Login</h1>
         <TextField
           id="standard-basic"
           label="Email"
@@ -58,14 +62,14 @@ const Login = () => {
           sx={{ width: 300, marginLeft: 5 }}
           onChange={(e) => setPassword(e.target.value)}
         />
-
         <Stack spacing={2} direction="row">
           <Button onClick={Status} variant="contained" sx={{ marginTop: 8 }}>
             LogIn
           </Button>
         </Stack>
-        <Loader />
       </div>
+      {isLoading && <Loader />}
+      {/* <Loader /> */}
     </div>
   );
 };

@@ -15,6 +15,17 @@ const Footer = () => {
         <h5>PRIVACY &amp; TERMS</h5>
         <Link to="/terms">Terms of use</Link>
       </div>
+      <div className="columns">
+        <h5>SOCIALS</h5>
+        <Link to="/terms">Jordan Comas</Link>
+        <Link to="/terms">Miguel Rocha</Link>
+        <Link to="/terms">Nelson Saroza</Link>
+        <Link to="/terms">Tim</Link>
+      </div>
+      <div className="columns">
+        <h5>PRIVACY &amp; TERMS</h5>
+        <Link to="/terms">Terms of use</Link>
+      </div>
     </footer>
   );
 };

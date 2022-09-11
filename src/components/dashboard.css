@@ -44,11 +44,10 @@
 }
 
 svg {
-  /* display: flex; */
+  display: flex;
   justify-content: center;
   align-items: center;
-  /* margin-right: 15vw; */
-  /* height: 10vh; */
+  text-transform: capitalize;
   font-size: 30px;
   font-weight: bold;
 }
@@ -59,7 +58,7 @@ svg {
   justify-content: flex-start;
   align-items: center;
   width: 50vw;
-  height: 100vh;
+  height: 80vh;
   flex-wrap: wrap;
 }
 
@@ -68,6 +67,7 @@ svg {
   justify-content: center;
   align-items: center;
   display: flex;
+  text-align: center;
 }
 
 .chart {

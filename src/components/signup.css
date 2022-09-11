@@ -35,6 +35,12 @@ section1 {
   align-items: center;
 }
 
+.loader-div {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+}
+
 .all {
   display: flex;
   flex-direction: row;
