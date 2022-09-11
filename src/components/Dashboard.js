@@ -62,7 +62,7 @@ const Dashboard = () => {
       </div>
       <div className="sections">
         <div className="chart-left">
-          <h1>Welcome to your dashboard Jordan!</h1>
+          <h1>Welcome to your dashboard {localStorage.email}!</h1>
           <div className="progress">
             <div className="progress-section">
               {/* {goals.map((goal) => {

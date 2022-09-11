@@ -46,8 +46,8 @@ const NewTransaction = () => {
           //   category: category,
         });
         // console.log(process.env);
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("id", response.data.id);
+        // localStorage.setItem("token", response.data.token);
+        // localStorage.setItem("id", response.data.id);
         // setStatus("welcome");
         navigateDash();
       } catch (err) {
