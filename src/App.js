@@ -10,6 +10,8 @@ import Profile from "./components/Profile";
 import Dashboard from "./components/Dashboard";
 import NewTransaction from "./components/NewTransaction";
 import Goals from "./components/Goals";
+import AddButton from "./components/AddButton";
+import AllTransactions from "./components/AllTransaction";
 
 function App() {
   return (
@@ -23,7 +25,9 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/transaction" element={<NewTransaction />} />
         <Route path="/goals" element={<Goals />} />
+        <Route path="/alltransactions" element={<AllTransactions />} />
       </Routes>
+      <AddButton />
       <Footer />
     </div>
   );

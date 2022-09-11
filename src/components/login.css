@@ -1,10 +1,15 @@
-.login{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10vh;
+.login-page {
+  height: 90vh;
+  width: 100vw;
 }
 
-.login > h1{
-    text-align: center;
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10vh;
+}
+
+.login > h1 {
+  text-align: center;
 }

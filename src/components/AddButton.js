@@ -2,9 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
-import EditIcon from "@mui/icons-material/Edit";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import NavigationIcon from "@mui/icons-material/Navigation";
+import { Link } from "react-router-dom";
 
 const AddButton = () => {
   return (
@@ -13,13 +11,16 @@ const AddButton = () => {
         sx={{
           "& > :not(style)": { m: 1 },
           position: "fixed",
-          bottom: "0",
-          right: "0",
+          bottom: "1%",
+          right: "1%",
+          zIndex: 1,
         }}
       >
-        <Fab color="primary" aria-label="add">
-          <AddIcon />
-        </Fab>
+        <Link to="/transaction">
+          <Fab color={"primary"} aria-label="add">
+            <AddIcon />
+          </Fab>
+        </Link>
       </Box>
     </div>
   );

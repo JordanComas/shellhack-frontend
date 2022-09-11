@@ -11,8 +11,9 @@ import "react-circular-progressbar/dist/styles.css";
 
 const Dashboard = () => {
   const [goals, setGoals] = React.useState([]);
-  const [percentage, setPercentage] = React.useState(70);
+  const [percentage, setPercentage] = React.useState(0);
   const [status, setStatus] = React.useState("");
+  const [getTransactions, setGetTransactions] = React.useState([]);
   // const percentage = 10;
 
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const Dashboard = () => {
       navigate("/");
     }
     fetchGoals();
+    getAllTransactions();
   }, []);
 
   const fetchGoals = async () => {
@@ -33,6 +35,13 @@ const Dashboard = () => {
     } catch (err) {
       setStatus(err.message);
     }
+  };
+
+  const getAllTransactions = async () => {
+    let response = await get("/transactions/my-transactions");
+
+    console.log(response.data);
+    setGetTransactions(response.data);
   };
 
   return (

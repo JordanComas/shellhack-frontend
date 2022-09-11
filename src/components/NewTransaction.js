@@ -133,7 +133,7 @@ const NewTransaction = () => {
             <Button
               onClick={Status}
               variant="contained"
-              sx={{ marginTop: 8, width: "100%", backgroundColor: "#2d6590" }}
+              sx={{ marginTop: 8, width: 100, backgroundColor: "#2d6590" }}
             >
               Add
             </Button>

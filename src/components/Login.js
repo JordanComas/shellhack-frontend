@@ -5,7 +5,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { get, post } from "../services/service";
 import { useNavigate } from "react-router-dom";
-import AddButton from "./AddButton";
+import Loader from "./Loader";
 
 const Login = () => {
   const [email, setEmail] = React.useState("");
@@ -39,7 +39,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="login-page">
       <div className="login">
         <h1>LogIn</h1>
         <TextField
@@ -63,8 +63,8 @@ const Login = () => {
             LogIn
           </Button>
         </Stack>
+        <Loader />
       </div>
-      <AddButton />
     </div>
   );
 };

@@ -29,6 +29,7 @@
   border: none;
   border-radius: 0.5rem;
   transition: 0.4s;
+  font-weight: bold;
 }
 
 .home-btn:hover {
